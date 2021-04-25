@@ -14,7 +14,3 @@ if __name__ == '__main__':
 
 
 # Routes
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
