@@ -36,3 +36,15 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+
+@views.route('/tstest', methods=['POST'])
+def typescripttest():
+    flash('Typescript works', category='success')
+    return jsonify({})
+
+
+@views.route('/debug', methods=['POST'])
+def debug():
+    flash('Test', category='success')
+    return jsonify({})

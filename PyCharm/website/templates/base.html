@@ -59,6 +59,12 @@
     {% endif %} {% endfor %} {% endif %} {% endwith %}
 
     <div class="container">{% block content %} {% endblock %}</div>
+		<div class="container">
+			<button type="button" class="btn btn-primary" onClick="debug()">Debug</button>
+		</div>
+		<div class="container">
+			<button type="button" class="btn btn-primary" onClick="typeTest()">Typescript</button>
+		</div>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -75,9 +81,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <script
+{#		Since we can only handle Javascript we have to convert them using tsc "Filename.ts"#}
+		<script
       type="text/javascript"
-      src="{{ url_for('static', filename='index.js') }}"
+      src="{{ url_for('static', filename='advanced.js') }}"
     ></script>
   </body>
 </html>
