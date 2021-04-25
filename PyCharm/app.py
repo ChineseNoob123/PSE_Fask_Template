@@ -10,7 +10,4 @@ else:
     app.debug = False
 
 if __name__ == '__main__':
-    app.run()
-
-
-# Routes
+    app.run(debug=True)
