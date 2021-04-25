@@ -1,3 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Login{% endblock %}
-{% block content %}This is the login Page{% endblock %}
+{% block content %}This is the login Page<br>
+    {{ "This is a passed Variable:" + text}}<br>
+    This is a passed numerical Value: {{num}}<br>
+And this is an evalutated if statement: {% if boolean ==True %}Jup war wahr{% else %}Nope nicht wahr{% endif %}
+{% endblock %}
