@@ -5,19 +5,24 @@ from flask_login import LoginManager
 
 # Create Flask App
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@localhost/flask'
+DBLoc = 'loc'
+
+DB_NAME = "database.db"
+
+if DBLoc == 'remote':
+    # Path to Postgresql database path is postgresql://postgres:Password@host/Databasename
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@localhost/flask'
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
 
 # Disable stupid Warning
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-DB_NAME = "database.db"
 
 
 def create_app():
     # Encrypt site/session cookies
     app.config['SECRET_KEY'] = 'super_secret_key'
-    # Where is the Database stored
-    # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
 
     # Init Database
 

@@ -1,7 +1,8 @@
 from website import create_app
 
-app = create_app()
 ENV = 'dev'
+app = create_app()
+
 
 # Check if we are in dev mode to enable debugging etc
 if ENV == 'dev':

@@ -1,0 +1,21 @@
+1. Create virtual env:
+(In the desired folder):
+python -m venv "name des environemnts"
+2. Start the virtual env:
+"name des environments"\Scripts\activate.bat  (auf Windows)
+source "name des environments"/bin/activate   (auf Linux/mac)
+3. Download the required dependencies:
+Navigate to the gitHub where the requirements.txt file is located
+python -m pip install -r requirements.txt
+4. Start the app
+In the same folder (where app.py) is located:
+python app.py
+
+
+Ein TestAccount ist
+test@gmail.com
+123456789
+
+aber erstellt ruhig selbst einen.
+Je nachdem müsst ihr DBLoc von remote umstellen sonst will der auf meine lokale PostgreSQL
+Datenbank und stürzt ab. Ihr könnt auch selbst eine Datenbank aufmachen und dann linken
