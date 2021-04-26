@@ -3,20 +3,24 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 
-db = SQLAlchemy()
+# Create Flask App
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@localhost/flask'
+
+# Disable stupid Warning
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 DB_NAME = "database.db"
 
 
 def create_app():
-    # Create Flask App
-    app = Flask(__name__)
     # Encrypt site/session cookies
     app.config['SECRET_KEY'] = 'super_secret_key'
     # Where is the Database stored
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-    # Disable stupid Warning
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+    # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+
     # Init Database
+
     db.init_app(app)
 
     # Register the Blueprints
@@ -44,6 +48,7 @@ def create_app():
 
 
 def create_database(app):
-    if not path.exists('website/' + DB_NAME):
-        db.create_all(app=app)
-        print('Created Database!')
+    db.create_all(app=app)
+    # if not path.exists('website/' + DB_NAME):
+    #     db.create_all(app=app)
+    #     print('Created Database!')
